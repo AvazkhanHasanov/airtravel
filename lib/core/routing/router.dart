@@ -1,0 +1,13 @@
+
+import 'package:air_travel/core/routing/routes.dart';
+import 'package:go_router/go_router.dart';
+import '../../feature/auth/pages/login_page.dart';
+import '../../feature/home/pages/home_page.dart';
+
+final router = GoRouter(
+  initialLocation: Routes.login,
+  routes: [
+    GoRoute(path: Routes.home, builder: (context, state) => HomePage()),
+    GoRoute(path: Routes.login, builder: (context, state) => LoginPage()),
+  ],
+);
