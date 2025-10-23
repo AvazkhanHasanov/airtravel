@@ -16,12 +16,15 @@ class AirTravel extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: dependencies,
-      child: ScreenUtilInit(
-        designSize: Size(428, 926),
-        builder: (context, child) => MaterialApp.router(
-          theme: AppTheme().lightTheme,
-          themeMode: ThemeMode.light,
-          routerConfig: router,
+      child: MultiBlocProvider(
+        providers: blocDependencies,
+        child: ScreenUtilInit(
+          designSize: Size(428, 926),
+          builder: (context, child) => MaterialApp.router(
+            theme: AppTheme().lightTheme,
+            themeMode: ThemeMode.light,
+            routerConfig: router,
+          ),
         ),
       ),
     );

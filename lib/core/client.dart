@@ -8,7 +8,13 @@ class ApiClient {
 
   ApiClient({required this.interceptor}) {
     _dio = Dio(
-      BaseOptions(baseUrl: "http://127.0.0.1:8000/api/v1", validateStatus: (status) => true),
+      BaseOptions(
+        baseUrl: "http://192.168.11.130:8000/api/v1",
+        connectTimeout: const Duration(seconds: 15),
+        receiveTimeout: const Duration(seconds: 15),
+        sendTimeout: const Duration(seconds: 15),
+        validateStatus: (status) => true,
+      ),
     )..interceptors.add(interceptor);
   }
 
@@ -21,8 +27,10 @@ class ApiClient {
       if (response.statusCode != 200) {
         return Result.error(Exception(response.data));
       }
+      print("❌ GET Error: ${response.statusCode} -> ${response.data}");
       return Result.ok(response.data as T);
     } on Exception catch (exception) {
+      print("🚫 DioException: ${exception.toString()}");
       return Result.error(exception);
     }
   }
