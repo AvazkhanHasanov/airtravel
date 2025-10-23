@@ -43,4 +43,7 @@ class AppIcons {
   static const String washingMachine = 'assets/icons/washing-machine.svg';
   static const String wifi = 'assets/icons/wifi.svg';
   static const String ziyoratgoh = 'assets/icons/ziyoratgoh.svg';
+  static const String mainLogo = 'assets/icons/main_logo.svg';
+  static const String loading = 'assets/icons/loading.svg';
+  static const String onboarding2Png = 'assets/image/onboarding/onboarding_1.png';
 }

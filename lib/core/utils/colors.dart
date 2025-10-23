@@ -4,6 +4,7 @@ class AppColors{
   static const white =Color(0xFFFFFFFF);
   static const greyscale=Color(0xFF3BB77E);
   static const greyscale50=Color(0xFFFAFAFA);
+  static const greyscale300=Color(0xFFE0E0E0);
   static const greyscale500=Color(0xFF9E9E9E);
   static const greyscale600=Color(0xFF757575);
   static const greyscale700=Color(0xFF616161);
