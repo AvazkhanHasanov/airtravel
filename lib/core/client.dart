@@ -10,9 +10,9 @@ class ApiClient {
     _dio = Dio(
       BaseOptions(
         baseUrl: "http://194.187.122.4:8000/uz/api/v1",
-        connectTimeout: const Duration(seconds: 60),
-        receiveTimeout: const Duration(seconds: 60),
-        sendTimeout: const Duration(seconds: 60),
+        connectTimeout: const Duration(seconds: 5),
+        receiveTimeout: const Duration(seconds: 5),
+        sendTimeout: const Duration(seconds: 5),
         validateStatus: (status) => true,
         followRedirects: false,
       ),

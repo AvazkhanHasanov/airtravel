@@ -1,4 +1,5 @@
 import 'package:air_travel/data/repository/gallery_repository.dart';
+import 'package:air_travel/feature/auth/managers/register_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/single_child_widget.dart';
@@ -29,6 +30,12 @@ final dependencies = <SingleChildWidget>[
       storage: context.read<FlutterSecureStorage>(),
     ),
   ),
+  RepositoryProvider(
+    create: (context) => LoginRepository(
+      client: context.read<ApiClient>(),
+      storage: context.read<FlutterSecureStorage>(),
+    ),
+  ),
 ];
 
 final blocDependencies = <SingleChildWidget>[
@@ -40,5 +47,8 @@ final blocDependencies = <SingleChildWidget>[
   ),
   BlocProvider<OtpBloc>(
     create: (context) => OtpBloc(repository: context.read<LoginRepository>()),
+  ),
+  BlocProvider(
+    create: (context) => RegisterBloc(repository: context.read<LoginRepository>()),
   ),
 ];

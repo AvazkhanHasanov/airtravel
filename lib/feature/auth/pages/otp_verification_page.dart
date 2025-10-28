@@ -1,5 +1,7 @@
+import 'package:air_travel/feature/auth/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 import '../../../core/utils/colors.dart';
 import '../managers/otp_bloc.dart';
@@ -75,7 +77,12 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
           _showError(state.errorMessage ?? 'Xatolik yuz berdi');
         } else if (state.status == OtpStatus.success) {
           _showSuccess('Muvaffaqiyatli tasdiqlandi!');
-          // Navigator.pushReplacementNamed(context, '/home');
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => RegisterPage(phoneNumber: widget.phoneNumber),
+            ),
+          );
           print("Token olindi, Home page ga o'tish kerak");
         }
       },
@@ -84,8 +91,11 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text('OTP Tasdiqlash'),
-            backgroundColor: AppColors.primary,
+            leading: IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(Icons.arrow_back, color: AppColors.greyscale),
+            ),
+            title: Text("Kodni kiriting",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),),
           ),
           body: Padding(
             padding: const EdgeInsets.all(24.0),
@@ -93,8 +103,8 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Kodni kiriting",
-                  style: Theme.of(context).textTheme.headlineSmall,
+                  "Sms kodni kiriting",
+                  style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.w300),
                 ),
                 SizedBox(height: 16),
                 Text(

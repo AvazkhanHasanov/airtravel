@@ -19,12 +19,12 @@ class AuthInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
-    debugPrint('📤 Request: ${options.method} ${options.path}');
-    debugPrint('🌐 FULL URL: ${options.uri.toString()}');
-    debugPrint('📦 BaseURL: ${options.baseUrl}');
-    debugPrint('📂 Path: ${options.path}');
-    debugPrint('📤 Data: ${options.data}');
-    debugPrint('📤 Headers: ${options.headers}');
+    debugPrint('Request: ${options.method} ${options.path}');
+    debugPrint('FULL URL: ${options.uri.toString()}');
+    debugPrint('BaseURL: ${options.baseUrl}');
+    debugPrint('Path: ${options.path}');
+    debugPrint('Data: ${options.data}');
+    debugPrint('Headers: ${options.headers}');
 
     var token = await secureStorage.read(key: 'token');
     if (token != null) {
@@ -93,7 +93,7 @@ class AuthInterceptor extends Interceptor {
   }
 
   Future<void> logout() async {
-    debugPrint('🚪 Logout...');
+    debugPrint('Logout...');
     await secureStorage.delete(key: 'token');
     await secureStorage.delete(key: 'login');
     await secureStorage.delete(key: 'password');

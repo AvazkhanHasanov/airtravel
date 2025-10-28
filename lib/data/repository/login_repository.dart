@@ -3,6 +3,8 @@ import 'package:air_travel/core/utils/result.dart';
 import 'package:air_travel/data/model/login_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+import '../model/register_model.dart';
+
 class OtpModel {
   final String phoneNumber;
   final String code;
@@ -98,6 +100,30 @@ class LoginRepository {
       );
     } catch (e) {
       print(" OTP Repository Exception: $e");
+      return Result.error(Exception(e.toString()));
+    }
+  }
+  Future<Result<RegisterResponseModel>> register(RegisterModel model) async {
+    try {
+      print("Repository: Ro'yxatdan o'tish - ${model.phoneNumber}");
+
+      final response = await _client.post<Map<String, dynamic>>(
+        '/accounts/user/register/',
+        data: model.toJson(),
+      );
+
+      return response.fold(
+            (error) {
+          print("Register Repository Error: $error");
+          return Result.error(error);
+        },
+            (value) {
+          print("Register Repository Success: $value");
+          return Result.ok(RegisterResponseModel.fromJson(value));
+        },
+      );
+    } catch (e) {
+      print("Register Repository Exception: $e");
       return Result.error(Exception(e.toString()));
     }
   }

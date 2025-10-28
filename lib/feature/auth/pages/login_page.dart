@@ -92,10 +92,9 @@ class _LoginPageState extends State<LoginPage> {
           backgroundColor: AppColors.white,
           appBar: AppBar(
             backgroundColor: AppColors.white,
-            elevation: 0,
             leading: IconButton(
               onPressed: () => Navigator.pop(context),
-              icon: const Icon(Icons.arrow_back, color: AppColors.greyscale),
+              icon: Icon(Icons.arrow_back, color: AppColors.greyscale),
             ),
           ),
           body: Padding(
