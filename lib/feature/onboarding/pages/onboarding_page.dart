@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import '../../../core/status.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -20,9 +21,9 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   int _currentPage = 0;
   final PageController _pageController = PageController();
-  // int _totalPages = 0;
+  int _totalPages = 0;
 
-  final int _totalPages = 3;
+  // final int _totalPages = 3;
 
   @override
   void dispose() {
@@ -43,21 +44,21 @@ class _OnboardingPageState extends State<OnboardingPage> {
       extendBody: true,
       body: BlocBuilder<OnboardingCubit, OnboardingState>(
         builder: (context, state) {
-          // if (state.status == Status.loading) {
-          //   return Center(child: CircularProgressIndicator());
-          // }
-          // if (state.gallery.isNotEmpty) {
-          //   _totalPages = state.gallery.length;
-          // }
+          if (state.status == Status.loading) {
+            return Center(child: CircularProgressIndicator());
+          }
+          if (state.gallery.isNotEmpty) {
+            _totalPages = state.gallery.length;
+          }
           return PageView.builder(
             controller: _pageController,
             //state.gallery.length
-            itemCount: pages.length,
+            itemCount: state.gallery.length,
             onPageChanged: (int page) => setState(() => _currentPage = page),
             itemBuilder: (context, index) => Stack(
               children: [
-                // Image.network(state.gallery[index].picture, width: 428.w, height: 926.h, fit: BoxFit.cover),
-                Image.asset(pages[index]['image'], width: 428.w, height: 926.h, fit: BoxFit.cover),
+                Image.network(state.gallery[index].picture, width: 428.w, height: 926.h, fit: BoxFit.cover),
+                // Image.asset(pages[index]['image'], width: 428.w, height: 926.h, fit: BoxFit.cover),
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
@@ -68,8 +69,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       spacing: 40.h,
                       children: [
                         Text(
-                          // state.gallery[index].prompt,
-                          pages[index]['title'],
+                          state.gallery[index].prompt,
+                          // pages[index]['title'],
                           style: AppStyles.h2Bold.copyWith(height: 1.3),
                           textAlign: TextAlign.center,
                         ),
