@@ -13,7 +13,6 @@ class LoginState extends Equatable {
     this.data,
     this.errorMessage,
   });
-
   LoginState copyWith({
     LoginStatus? status,
     LoginModel? data,
