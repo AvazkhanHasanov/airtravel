@@ -8,7 +8,7 @@ import '../../feature/home/pages/home_page.dart';
 
 
 final router = GoRouter(
-  initialLocation:Routes.splash,
+  initialLocation:Routes.login,
   routes: [
     GoRoute(path: Routes.home, builder: (context, state) => HomePage()),
     GoRoute(path: Routes.login, builder: (context, state) => LoginPage()),
