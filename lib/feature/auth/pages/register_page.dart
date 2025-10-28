@@ -120,7 +120,7 @@ class _RegisterPageState extends State<RegisterPage> {
         lastName: lastName,
         phoneNumber: widget.phoneNumber,
         region: _selectedRegion!,
-        profilePhoto: profilePhotoPath, // To'g'rilandi
+        profilePhoto: profilePhotoPath,
       ),
     );
   }
