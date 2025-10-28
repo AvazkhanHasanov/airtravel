@@ -16,9 +16,8 @@ class _LoginPageState extends State<LoginPage> {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w),
         child: Column(
-          children: [
-            AppTextFormField(hintText: 'Telefon raqmingizni kiriting')
-          ],
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [AppTextFormField(hintText: 'Telefon raqmingizni kiriting')],
         ),
       ),
     );

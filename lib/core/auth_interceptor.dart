@@ -6,8 +6,6 @@ import 'package:flutter/foundation.dart';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-
-
 class AuthInterceptor extends Interceptor {
   AuthInterceptor({
     required this.secureStorage,
@@ -16,7 +14,7 @@ class AuthInterceptor extends Interceptor {
   final FlutterSecureStorage secureStorage;
   final dio = Dio(
     BaseOptions(
-      baseUrl: "http://192.168.11.130:8000/api/v1",
+      baseUrl: "http://192.168.9.198:8000/api/v1",
 
       validateStatus: (status) => true,
     ),
