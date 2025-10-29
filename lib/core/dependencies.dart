@@ -1,4 +1,10 @@
+import 'package:air_travel/data/repository/base_repository.dart';
+import 'package:air_travel/data/repository/discounts_repository.dart';
 import 'package:air_travel/data/repository/gallery_repository.dart';
+import 'package:air_travel/data/repository/notification_repository.dart';
+import 'package:air_travel/data/repository/order_create_repository.dart';
+import 'package:air_travel/data/repository/order_list_repository.dart';
+import 'package:air_travel/data/repository/package_repository.dart';
 import 'package:air_travel/feature/auth/managers/register_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -36,6 +42,12 @@ final dependencies = <SingleChildWidget>[
       storage: context.read<FlutterSecureStorage>(),
     ),
   ),
+  RepositoryProvider(create: (context) => BaseRepository(apiClient: context.read())),
+  RepositoryProvider(create: (context) => DiscountsRepository(apiClient: context.read())),
+  RepositoryProvider(create: (context) => NotificationRepository(apiClient: context.read())),
+  RepositoryProvider(create: (context) => OrderRepository(apiClient: context.read())),
+  RepositoryProvider(create: (context) => OrderListRepository(apiClient: context.read())),
+  RepositoryProvider(create: (context) => PackageRepository(apiClient: context.read())),
 ];
 
 final blocDependencies = <SingleChildWidget>[
