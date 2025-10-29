@@ -1,3 +1,4 @@
+import 'package:air_travel/core/config/api_constants.dart';
 import 'package:dio/dio.dart';
 
 import 'auth_interceptor.dart';
@@ -9,7 +10,7 @@ class ApiClient {
   ApiClient({required this.interceptor}) {
     _dio = Dio(
       BaseOptions(
-        baseUrl: "http://194.187.122.4:8000/uz/api/v1",
+        baseUrl: baseUrl,
         connectTimeout: const Duration(seconds: 5),
         receiveTimeout: const Duration(seconds: 5),
         sendTimeout: const Duration(seconds: 5),
