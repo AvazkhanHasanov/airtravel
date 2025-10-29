@@ -1,9 +1,8 @@
+import 'package:air_travel/core/config/api_constants.dart';
 import 'package:air_travel/core/routing/router.dart';
-
 import 'routing/routes.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 
@@ -16,7 +15,7 @@ class AuthInterceptor extends Interceptor {
   final FlutterSecureStorage secureStorage;
   final dio = Dio(
     BaseOptions(
-      baseUrl: "http://192.168.11.130:8000/api/v1",
+      baseUrl: baseUrl,
 
       validateStatus: (status) => true,
     ),

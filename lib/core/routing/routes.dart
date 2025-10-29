@@ -4,4 +4,5 @@ class Routes{
   static final splash='/splash';
   static final welcome='/welcome';
   static final onboarding='/onboarding';
+  static final profile='/profile';
 }
