@@ -5,7 +5,7 @@ import '../model/base_model.dart';
 class BaseRepository {
   final ApiClient _apiClient;
 
-  BaseRepository(this._apiClient);
+  BaseRepository({required ApiClient apiClient}) : _apiClient = apiClient;
 
   Future<Result<List<BaseModel>>> getCityList() async {
     final result = await _apiClient.get<List>('/base/city/list/');
