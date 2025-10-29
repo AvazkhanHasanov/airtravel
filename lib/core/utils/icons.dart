@@ -46,4 +46,16 @@ class AppIcons {
   static const String mainLogo = 'assets/icons/main_logo.svg';
   static const String loading = 'assets/icons/loading.svg';
   static const String onboarding2Png = 'assets/image/onboarding/onboarding_1.png';
+  static const String shielddone = 'assets/icons/shielddone.svg';
+  static const String send = 'assets/icons/send.svg';
+  static const String morecircle = 'assets/icons/morecircle.svg';
+  static const String logout = 'assets/icons/logout.svg';
+  static const String lock = 'assets/icons/lock.svg';
+  static const String infosquare = 'assets/icons/infosquare.svg';
+  static const String exclude = 'assets/icons/exclude.svg';
+  static const String circle = 'assets/icons/circle.svg';
+
+
+
+
 }
