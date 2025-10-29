@@ -1,3 +1,4 @@
+import 'package:air_travel/core/config/api_constants.dart';
 import 'package:air_travel/core/routing/router.dart';
 import 'routing/routes.dart';
 import 'package:dio/dio.dart';
@@ -13,7 +14,7 @@ class AuthInterceptor extends Interceptor {
   final dio = Dio(
     BaseOptions(
 
-      baseUrl: "http://194.187.122.4:8000/uz/api/v1",
+      baseUrl: baseUrl,
       validateStatus: (status) => true,
     ),
   );
