@@ -3,12 +3,12 @@ import '../../core/utils/result.dart';
 import '../model/notification_send_model.dart';
 
 class NotificationRepository {
-  final ApiClient apiClient;
+  final ApiClient _apiClient;
 
-  NotificationRepository({required this.apiClient});
+  NotificationRepository({required ApiClient apiClient}) : _apiClient = apiClient;
 
   Future<Result<NotificationSendModel>> sendNotification(NotificationSendModel notification) async {
-    final result = await apiClient.post<Map<String, dynamic>>(
+    final result = await _apiClient.post<Map<String, dynamic>>(
       '/notifications/notification/send/',
       data: notification.toJson(),
     );

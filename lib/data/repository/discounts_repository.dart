@@ -5,13 +5,13 @@ import '../model/discounts_list_model.dart';
 class DiscountsRepository {
   final ApiClient _apiClient;
 
-  DiscountsRepository(this._apiClient);
+  DiscountsRepository({required ApiClient apiClient}) : _apiClient = apiClient;
 
   Future<Result<List<DiscountModel>>> getDiscountList() async {
     final result = await _apiClient.get<List>('/discounts/discount/list/');
     return result.fold(
-          (error) => Result.error(error),
-          (data) => Result.ok(data.map((e) => DiscountModel.fromJson(e)).toList()),
+      (error) => Result.error(error),
+      (data) => Result.ok(data.map((e) => DiscountModel.fromJson(e)).toList()),
     );
   }
 }

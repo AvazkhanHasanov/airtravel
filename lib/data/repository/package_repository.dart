@@ -7,10 +7,10 @@ import '../model/packages/day_retrieve.dart';
 import '../model/packages/package_list.dart';
 import '../model/packages/package_retrieve.dart';
 
-class ApiRepository {
+class PackageRepository {
   final ApiClient _apiClient;
 
-  ApiRepository(this._apiClient);
+  PackageRepository({required ApiClient apiClient}) : _apiClient = apiClient;
 
   Future<Result<List<PackageList>>> getPackages({Map<String, dynamic>? queryParams}) async {
     final result = await _apiClient.get<List>('/packages/package/list/', queryParams: queryParams);

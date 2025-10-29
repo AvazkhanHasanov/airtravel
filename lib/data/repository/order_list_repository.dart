@@ -5,7 +5,7 @@ import '../model/order_list_model.dart';
 class OrderListRepository {
   final ApiClient _apiClient;
 
-  OrderListRepository(this._apiClient);
+  OrderListRepository({required ApiClient apiClient}) : _apiClient = apiClient;
 
   Future<Result<List<OrderList>>> getOrderList({Map<String, dynamic>? queryParams}) async {
     final result = await _apiClient.get('/orders/order/list/', queryParams: queryParams);
