@@ -9,6 +9,7 @@ class AppIconButton extends StatelessWidget {
     this.width = 24,
     this.height = 24,
     this.radius = 12,
+    this.borderWidth = 1,
     required this.icon,
     required this.onPressed,
     this.padding = EdgeInsets.zero,
@@ -19,12 +20,12 @@ class AppIconButton extends StatelessWidget {
     super.key,
   });
 
-
   final Size size;
   final String icon;
   final double width;
   final double height;
   final double radius;
+  final double borderWidth;
   final Color borderColor;
   final EdgeInsets padding;
   final Color backgroundColor;
@@ -39,7 +40,7 @@ class AppIconButton extends StatelessWidget {
       style: IconButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(radius.r),
-          side: BorderSide(color: borderColor),
+          side: BorderSide(color: borderColor, width: borderWidth),
         ),
         backgroundColor: backgroundColor,
         padding: padding,

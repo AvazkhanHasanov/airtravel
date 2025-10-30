@@ -5,4 +5,9 @@ class Routes{
   static final welcome='/welcome';
   static final onboarding='/onboarding';
   static final profile='/profile';
+  static final maxfiylikSiyosati ='/maxfiylikSiyosati';
+  static final language = '/language';
+  static final bildirishnoma = '/bildirishnoma';
+  static final tolovlar = '/tolovlar';
+  static final buyurtmalarTarixi = '/buyurtmalarTarixi';
 }
