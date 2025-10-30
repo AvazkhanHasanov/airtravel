@@ -2,7 +2,9 @@ import 'package:air_travel/feature/common/widgets/app_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../../core/routing/routes.dart';
 import '../../../core/utils/colors.dart';
 import '../../../core/utils/icons.dart';
 import '../../../core/utils/styles.dart';
@@ -31,9 +33,8 @@ class _ProfilePageState extends State<ProfilePage> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {
-            },
-            icon:  SvgPicture.asset(AppIcons.circle),
+            onPressed: () {},
+            icon: SvgPicture.asset(AppIcons.circle),
           ),
         ],
       ),
@@ -48,9 +49,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   backgroundColor: AppColors.greyscale50,
                   radius: 45,
                   backgroundImage: image != null ? FileImage(image!) : null,
-                  child: image == null
-                      ? const Icon(Icons.person, size: 45, color: AppColors.greyscale500)
-                      : null,
+                  child: image == null ? const Icon(Icons.person, size: 45, color: AppColors.greyscale500) : null,
                 ),
                 Positioned(
                   bottom: 0,
@@ -64,7 +63,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
-
               ],
             ),
           ),
@@ -80,13 +78,34 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           const SizedBox(height: 20),
           _tile(AppIcons.profile, 'Profilni tahrirlash'),
-          _tile(AppIcons.notifications, 'Bildirishnoma'),
-          _tile(AppIcons.wallet, 'To‘lovlar'),
-          _tile(AppIcons.shielddone, 'Buyurtma tarixi'),
-          _tile(AppIcons.morecircle, 'Ilova tili', trailing: 'Uzbek (Uz)'),
-          _tile(AppIcons.lock, 'Maxfiylik Siyosati'),
+          _tile(
+            AppIcons.notifications,
+            'Bildirishnoma',
+            onTap: () => context.push(Routes.bildirishnoma),
+          ),
+          _tile(
+            AppIcons.wallet,
+            'To‘lovlar',
+            onTap: () => context.push(Routes.tolovlar),
+          ),
+          _tile(
+            AppIcons.shielddone,
+            'Buyurtma tarixi',
+            onTap: () => context.push(Routes.buyurtmalarTarixi),
+          ),
+          _tile(
+            AppIcons.morecircle,
+            'Ilova tili',
+            trailing: 'Uzbek (Uz)',
+            onTap: () => context.push(Routes.language),
+          ),
+          _tile(
+            AppIcons.lock,
+            'Maxfiylik Siyosati',
+            onTap: () => context.push(Routes.maxfiylikSiyosati),
+          ),
           _tile(AppIcons.infosquare, 'Call Markaz'),
-          _tile(AppIcons.send, 'Ulashish',showArrow: false),
+          _tile(AppIcons.send, 'Ulashish', showArrow: false),
           ListTile(
             leading: SvgPicture.asset(AppIcons.logout),
             title: const Text(
@@ -103,28 +122,28 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   static Widget _tile(
-      String svgPath,
-      String title, {
-        String? trailing,
-        bool showArrow = true,
-      }) {
+    String svgPath,
+    String title, {
+    String? trailing,
+    bool showArrow = true,
+    VoidCallback? onTap,
+  }) {
     return ListTile(
+      onTap: onTap,
       leading: SvgPicture.asset(svgPath, width: 22, height: 22),
       title: Text(title),
       trailing: trailing != null
           ? Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(trailing, style: AppStyles.bodyXlarge),
-          if (showArrow) const SizedBox(width: 8),
-          if (showArrow) const Icon(Icons.chevron_right,color: AppColors.greyscale900,size: 30),
-        ],
-      )
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(trailing, style: AppStyles.bodyXlarge),
+                if (showArrow) const SizedBox(width: 8),
+                if (showArrow) const Icon(Icons.chevron_right, color: AppColors.greyscale900, size: 30),
+              ],
+            )
           : showArrow
-          ? Icon(Icons.chevron_right,color: AppColors.greyscale900,size: 30)
+          ? const Icon(Icons.chevron_right, color: AppColors.greyscale900, size: 30)
           : null,
     );
   }
-
-
 }
