@@ -1,20 +1,25 @@
 import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
 
-class AppColors{
-  static const white =Color(0xFFFFFFFF);
-  static const greyscale=Color(0xFF3BB77E);
-  static const greyscale50=Color(0xFFFAFAFA);
-  static const greyscale500=Color(0xFF9E9E9E);
-  static const greyscale600=Color(0xFF757575);
-  static const greyscale700=Color(0xFF616161);
-  static const greyscale800=Color(0xFF424242);
-  static const  greyscale900 = Color(0xFF3BB77E);
-  static const  gray = Color(0xFF4B4B4B);
-  static const  dark3 = Color(0xFF35383F);
-  static const  black = Color(0xFF000000);
-
-  static const  borderColor = Color(0xFF069C57);
-  static const  yellowBorder = Color(0xFFE4DC19);
-
-
+class AppColors {
+  static const white = Color(0xFFFFFFFF);
+  static const greyscale = Color(0xFF3BB77E);
+  static const greyscale50 = Color(0xFFFAFAFA);
+  static const greyscale300 = Color(0xFFE0E0E0);
+  static const greyscale500 = Color(0xFF9E9E9E);
+  static const greyscale600 = Color(0xFF757575);
+  static const greyscale700 = Color(0xFF616161);
+  static const greyscale800 = Color(0xFF424242);
+  static const greyscale900 = Color(0xFF3BB77E);
+  static const gray = Color(0xFF4B4B4B);
+  static const dark3 = Color(0xFF35383F);
+  static const black = Color(0xFF000000);
+  static const primary = Color(0xFF00B074);
+  static const borderColor = Color(0xFF069C57);
+  static const yellowBorder = Color(0xFFE4DC19);
+  static const red = Color(0xFFF75555);
+  static const greyscale400 = Color(0xFFBDBDBD);
+  static const orange = Color(0xFFF6980A);
+  static const greyscale200 = Color(0xFFEEEEEE);
+  static const greyscale100 = Color(0xFFF5F5F5);
 }

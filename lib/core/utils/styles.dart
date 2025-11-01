@@ -1,9 +1,15 @@
-import 'dart:ui';
-
+import 'package:flutter/material.dart';
 import 'package:air_travel/core/utils/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppStyles {
+  static final black = TextStyle(
+    fontSize: 64.sp,
+    fontWeight: FontWeight.w900,
+    fontFamily: 'Urbanist',
+    color: AppColors.white,
+  );
+
   static final extraBold = TextStyle(
     fontSize: 8.sp,
     fontWeight: FontWeight.w800,
