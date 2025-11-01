@@ -3,7 +3,9 @@ import 'package:air_travel/feature/common/widgets/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../../core/routing/routes.dart';
 import '../../../core/utils/colors.dart';
 import '../../../core/utils/icons.dart';
 import '../../../core/utils/styles.dart';
@@ -62,6 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
+
               ],
             ),
           ),
@@ -104,9 +107,10 @@ class _ProfilePageState extends State<ProfilePage> {
     String svgPath,
     String title, {
     String? trailing,
-    bool showArrow = true,
+    bool showArrow = true, VoidCallback? onTap,
   }) {
     return ListTile(
+      onTap: onTap,
       leading: SvgPicture.asset(svgPath, width: 22, height: 22),
       title: Text(title),
       trailing: trailing != null
@@ -119,7 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             )
           : showArrow
-          ? Icon(Icons.chevron_right, color: AppColors.greyscale900, size: 30)
+          ? const Icon(Icons.chevron_right, color: AppColors.greyscale900, size: 30)
           : null,
     );
   }
