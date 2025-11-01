@@ -1,4 +1,5 @@
 import 'package:air_travel/feature/common/widgets/app_icon_button.dart';
+import 'package:air_travel/feature/common/widgets/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -63,6 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
+
               ],
             ),
           ),
@@ -78,32 +80,11 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           const SizedBox(height: 20),
           _tile(AppIcons.profile, 'Profilni tahrirlash'),
-          _tile(
-            AppIcons.notifications,
-            'Bildirishnoma',
-            onTap: () => context.push(Routes.bildirishnoma),
-          ),
-          _tile(
-            AppIcons.wallet,
-            'To‘lovlar',
-            onTap: () => context.push(Routes.tolovlar),
-          ),
-          _tile(
-            AppIcons.shielddone,
-            'Buyurtma tarixi',
-            onTap: () => context.push(Routes.buyurtmalarTarixi),
-          ),
-          _tile(
-            AppIcons.morecircle,
-            'Ilova tili',
-            trailing: 'Uzbek (Uz)',
-            onTap: () => context.push(Routes.language),
-          ),
-          _tile(
-            AppIcons.lock,
-            'Maxfiylik Siyosati',
-            onTap: () => context.push(Routes.maxfiylikSiyosati),
-          ),
+          _tile(AppIcons.notifications, 'Bildirishnoma'),
+          _tile(AppIcons.wallet, 'To‘lovlar'),
+          _tile(AppIcons.shielddone, 'Buyurtma tarixi'),
+          _tile(AppIcons.morecircle, 'Ilova tili', trailing: 'Uzbek (Uz)'),
+          _tile(AppIcons.lock, 'Maxfiylik Siyosati'),
           _tile(AppIcons.infosquare, 'Call Markaz'),
           _tile(AppIcons.send, 'Ulashish', showArrow: false),
           ListTile(
@@ -118,6 +99,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBarApp(),
     );
   }
 
@@ -125,8 +107,7 @@ class _ProfilePageState extends State<ProfilePage> {
     String svgPath,
     String title, {
     String? trailing,
-    bool showArrow = true,
-    VoidCallback? onTap,
+    bool showArrow = true, VoidCallback? onTap,
   }) {
     return ListTile(
       onTap: onTap,

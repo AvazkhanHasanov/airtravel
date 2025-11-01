@@ -54,6 +54,8 @@ class AppIcons {
   static const String infosquare = 'assets/icons/infosquare.svg';
   static const String exclude = 'assets/icons/exclude.svg';
   static const String circle = 'assets/icons/circle.svg';
+  static const image = 'assets/image/offers/offers_1.jpg';
+  static const image2 = 'assets/image/places/makka.png';
   static const String black = 'assets/icons/black.svg';
   static const String notBlack = 'assets/icons/notblack.svg';
   static const String arrowDown = 'assets/icons/Arrow - Down Square.svg';
