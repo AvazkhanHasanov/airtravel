@@ -43,8 +43,8 @@ class BottomNavigationBarApp extends StatelessWidget {
       },
       items: [
         navigate2Page(icon: AppIcons.home, label: "Asosiy"),
-        navigate2Page(icon: AppIcons.tick, label: "Paketlar"),
-        navigate2Page(icon: AppIcons.star, label: "Aloqa"),
+        navigate2Page(icon: AppIcons.ticket, label: "Paketlar"),
+        navigate2Page(icon: AppIcons.call2, label: "Aloqa"),
         navigate2Page(icon: AppIcons.heart, label: "Sevimlilar"),
         navigate2Page(icon: AppIcons.profile, label: "Profil"),
       ],

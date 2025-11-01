@@ -2,12 +2,16 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../data/model/popular_model.dart';
 import 'dots.dart';
 
 class CarouselImages extends StatefulWidget {
-  const CarouselImages({super.key, required this.images});
+  const CarouselImages({
+    super.key,
+    required this.popular,
+  });
 
-  final List<String> images;
+  final List<PopularModel> popular;
 
   @override
   State<CarouselImages> createState() => _CarouselImagesState();
@@ -19,7 +23,7 @@ class _CarouselImagesState extends State<CarouselImages> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 24.w),
+      padding: EdgeInsets.symmetric(horizontal: 24.w),
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -33,10 +37,10 @@ class _CarouselImagesState extends State<CarouselImages> {
                 enlargeCenterPage: false,
                 onPageChanged: (index, reason) => setState(() => currentIndex = index),
               ),
-              items: widget.images.map(
+              items: widget.popular.map(
                 (e) {
-                  return Image.asset(
-                    e,
+                  return Image.network(
+                    e.picture,
                     width: 380.w,
                     height: 100.h,
                     fit: BoxFit.cover,
@@ -45,7 +49,7 @@ class _CarouselImagesState extends State<CarouselImages> {
               ).toList(),
             ),
           ),
-          Dots(images: widget.images, currentIndex: currentIndex),
+          Dots(imagesCount: widget.popular.length, currentIndex: currentIndex),
         ],
       ),
     );

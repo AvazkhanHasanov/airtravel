@@ -60,4 +60,6 @@ class AppIcons {
   static const String notBlack = 'assets/icons/notblack.svg';
   static const String arrowDown = 'assets/icons/Arrow - Down Square.svg';
   static const String odambek = 'assets/icons/odambek.svg';
+  static const ticket = 'assets/icons/Ticket.svg';
+  static const call2 = 'assets/icons/Call2.svg';
 }

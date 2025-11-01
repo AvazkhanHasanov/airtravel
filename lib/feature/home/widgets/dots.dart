@@ -5,11 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class Dots extends StatelessWidget {
   const Dots({
     super.key,
-    required this.images,
-    required this.currentIndex,
+    required this.currentIndex, required this.imagesCount,
   });
 
-  final List<String> images;
+  final int imagesCount;
   final int currentIndex;
 
   @override
@@ -18,11 +17,11 @@ class Dots extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 8),
       child: Container(
         height: 8.w,
-        width: (images.length * 9 + 22).w,
+        width: (imagesCount * 9 + 22).w,
         decoration: BoxDecoration(color: AppColors.white, borderRadius: BorderRadius.circular(5.r)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(images.length, (index) {
+          children: List.generate(imagesCount, (index) {
             bool isActive = currentIndex == index;
             return AnimatedContainer(
               duration: const Duration(milliseconds: 300),

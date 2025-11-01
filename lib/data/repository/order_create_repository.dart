@@ -1,6 +1,6 @@
 import '../../core/client.dart';
 import '../../core/utils/result.dart';
-import '../model/order_create_model.dart';
+import '../model/orders/order_create_model.dart';
 
 class OrderRepository {
   final ApiClient _apiClient;

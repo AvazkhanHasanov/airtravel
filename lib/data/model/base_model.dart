@@ -4,14 +4,10 @@ class BaseModel {
 
   BaseModel({required this.id, required this.title});
 
-  factory BaseModel.fromJson(Map<String,dynamic> json){
+  factory BaseModel.fromJson(Map<String, dynamic> json) {
     return BaseModel(
-        id: json['id'],
-        title: json['title'],
+      id: json['id'],
+      title: json['title'],
     );
   }
-  Map<String,dynamic> toJson() => {
-    'id': id,
-    'title': title,
-  };
 }
