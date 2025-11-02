@@ -1,6 +1,6 @@
 import 'package:air_travel/core/utils/colors.dart';
 import 'package:air_travel/core/utils/styles.dart';
-import 'package:air_travel/data/model/packages/feature_nested_list.dart';
+import 'package:air_travel/data/model/packages/feature_model.dart';
 import 'package:air_travel/feature/home/widgets/discount.dart';
 import 'package:air_travel/feature/home/widgets/down_arrow_buttun.dart';
 import 'package:air_travel/feature/home/widgets/for_more_feature.dart';
@@ -21,7 +21,7 @@ class PlanTypes extends StatefulWidget {
   final String type;
   final int price;
   final int discountedPrice;
-  final List<FeatureNestedList> feature;
+  final List<FeatureModel> feature;
 
   @override
   State<PlanTypes> createState() => _PlanTypesState();

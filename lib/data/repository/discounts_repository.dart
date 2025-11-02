@@ -1,6 +1,6 @@
 import '../../core/client.dart';
 import '../../core/utils/result.dart';
-import '../model/discounts_list_model.dart';
+import '../model/discounts_model.dart';
 
 class DiscountsRepository {
   final ApiClient _apiClient;
