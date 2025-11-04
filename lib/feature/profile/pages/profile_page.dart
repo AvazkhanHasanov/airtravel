@@ -1,4 +1,5 @@
 import 'package:air_travel/feature/common/widgets/app_icon_button.dart';
+import 'package:air_travel/feature/common/widgets/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -120,6 +121,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBarApp(),
     );
   }
 

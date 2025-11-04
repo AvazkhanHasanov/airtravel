@@ -5,6 +5,7 @@ class Routes{
   static final welcome='/welcome';
   static final onboarding='/onboarding';
   static final profile='/profile';
+  static final sevimli='/sevimli';
   static final maxfiylikSiyosati ='/maxfiylikSiyosati';
   static final language = '/language';
   static final bildirishnoma = '/bildirishnoma';
