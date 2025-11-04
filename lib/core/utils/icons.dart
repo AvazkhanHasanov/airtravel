@@ -58,4 +58,10 @@ class AppIcons {
   static const String notBlack = 'assets/icons/notblack.svg';
   static const String arrowDown = 'assets/icons/Arrow - Down Square.svg';
   static const String odambek = 'assets/icons/odambek.svg';
+  static const String openclose = 'assets/icons/openclose.svg';
+  static const  String webSite = 'assets/icons/webSite.svg';
+  static const  String mikroPhone = 'assets/icons/mikrophone.svg';
+  static const  String instagram = 'assets/icons/instagram.svg';
+  static const  String facebook = 'assets/icons/facebook.svg';
+  static const  String telegram = 'assets/icons/basil_telegram-outline.svg';
 }

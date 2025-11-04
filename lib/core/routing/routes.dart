@@ -10,4 +10,5 @@ class Routes{
   static final bildirishnoma = '/bildirishnoma';
   static final tolovlar = '/tolovlar';
   static final buyurtmalarTarixi = '/buyurtmalarTarixi';
+  static final call = '/call';
 }

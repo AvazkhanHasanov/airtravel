@@ -3,6 +3,7 @@ import 'package:air_travel/feature/onboarding/pages/onboarding_page.dart';
 import 'package:air_travel/feature/onboarding/pages/welcome_page.dart';
 import 'package:air_travel/feature/profile/pages/bildirishnoma.dart';
 import 'package:air_travel/feature/profile/pages/buyurtmalar_tarixi.dart';
+import 'package:air_travel/feature/profile/pages/call_markaz.dart';
 import 'package:air_travel/feature/profile/pages/language.dart';
 import 'package:air_travel/feature/profile/pages/maxfiylik_siyosati.dart';
 import 'package:air_travel/feature/profile/pages/profile_page.dart';
@@ -26,5 +27,6 @@ final router = GoRouter(
     GoRoute(path: Routes.bildirishnoma,builder: (context,state) => Bildirishnoma()),
     GoRoute(path: Routes.tolovlar,builder: (context,state) => TolovlarTarixi()),
     GoRoute(path: Routes.buyurtmalarTarixi,builder: (context,state) => BuyurtmalarTarixi()),
+    GoRoute(path: Routes.call, builder: (context,state) => CallMarkaz()),
   ],
 );

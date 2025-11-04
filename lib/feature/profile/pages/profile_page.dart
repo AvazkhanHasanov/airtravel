@@ -104,7 +104,9 @@ class _ProfilePageState extends State<ProfilePage> {
             'Maxfiylik Siyosati',
             onTap: () => context.push(Routes.maxfiylikSiyosati),
           ),
-          _tile(AppIcons.infosquare, 'Call Markaz'),
+          _tile(AppIcons.infosquare, 'Call Markaz',
+              onTap: () => context.push(Routes.call),
+          ),
           _tile(AppIcons.send, 'Ulashish', showArrow: false),
           ListTile(
             leading: SvgPicture.asset(AppIcons.logout),
