@@ -64,7 +64,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
-
               ],
             ),
           ),
@@ -80,12 +79,35 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           const SizedBox(height: 20),
           _tile(AppIcons.profile, 'Profilni tahrirlash'),
-          _tile(AppIcons.notifications, 'Bildirishnoma'),
-          _tile(AppIcons.wallet, 'To‘lovlar'),
-          _tile(AppIcons.shielddone, 'Buyurtma tarixi'),
-          _tile(AppIcons.morecircle, 'Ilova tili', trailing: 'Uzbek (Uz)'),
-          _tile(AppIcons.lock, 'Maxfiylik Siyosati'),
-          _tile(AppIcons.infosquare, 'Call Markaz'),
+          _tile(
+            AppIcons.notifications,
+            'Bildirishnoma',
+            onTap: () => context.push(Routes.bildirishnoma),
+          ),
+          _tile(
+            AppIcons.wallet,
+            'To‘lovlar',
+            onTap: () => context.push(Routes.tolovlar),
+          ),
+          _tile(
+            AppIcons.shielddone,
+            'Buyurtma tarixi',
+            onTap: () => context.push(Routes.buyurtmalarTarixi),
+          ),
+          _tile(
+            AppIcons.morecircle,
+            'Ilova tili',
+            trailing: 'Uzbek (Uz)',
+            onTap: () => context.push(Routes.language),
+          ),
+          _tile(
+            AppIcons.lock,
+            'Maxfiylik Siyosati',
+            onTap: () => context.push(Routes.maxfiylikSiyosati),
+          ),
+          _tile(AppIcons.infosquare, 'Call Markaz',
+              onTap: () => context.push(Routes.call),
+          ),
           _tile(AppIcons.send, 'Ulashish', showArrow: false),
           ListTile(
             leading: SvgPicture.asset(AppIcons.logout),
@@ -107,7 +129,8 @@ class _ProfilePageState extends State<ProfilePage> {
     String svgPath,
     String title, {
     String? trailing,
-    bool showArrow = true, VoidCallback? onTap,
+    bool showArrow = true,
+    VoidCallback? onTap,
   }) {
     return ListTile(
       onTap: onTap,
