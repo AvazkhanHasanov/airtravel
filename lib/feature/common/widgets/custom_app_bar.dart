@@ -10,6 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.title,
     this.backgroundColor = Colors.white,
     this.textColor = Colors.black87,
+    this.arrowColor = Colors.black87,
     this.leading,
     this.actions,
     this.centerTitle = true,
@@ -19,6 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Color backgroundColor;
   final Color textColor;
+  final Color arrowColor;
   final Widget? leading;
   final List<Widget>? actions;
   final bool centerTitle;
@@ -35,7 +37,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           (showBackButton
               ? IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: SvgPicture.asset(AppIcons.backArrow),
+            icon: SvgPicture.asset(
+              AppIcons.backArrow,
+              colorFilter: ColorFilter.mode(arrowColor, BlendMode.srcIn),
+            ),
           )
               : null),
       centerTitle: centerTitle,
