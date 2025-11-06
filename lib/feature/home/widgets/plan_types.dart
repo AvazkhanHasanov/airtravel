@@ -28,16 +28,10 @@ class PlanTypes extends StatefulWidget {
 }
 
 class _PlanTypesState extends State<PlanTypes> {
-  final List<String> feature = [
-    'Transport Xizmati',
-    'Nonushta ',
-    'salomat',
-    'salomat',
-  ];
-
   final String text = 'bu tarifa siz ishoning men kafolat beraman ki  hali biror bir odam qilmagan ishalrni qildik ';
   bool isExpanded = false;
   final containerKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -120,10 +114,12 @@ class _PlanTypesState extends State<PlanTypes> {
                     Wrap(
                       children: [
                         ...List.generate(
-                          2,
-                          (index) => TravelFeatures(title: feature[index]),
+                          widget.feature.length,
+                          (index) => TravelFeatures(title: widget.feature[index].title),
                         ),
-                        feature.length > 2 ? ForMoreFeature(featureCount: feature.length - 2) : SizedBox.shrink(),
+                        widget.feature.length > 2
+                            ? ForMoreFeature(featureCount: widget.feature.length - 2)
+                            : SizedBox.shrink(),
                       ],
                     ),
                     DownArrowButton(

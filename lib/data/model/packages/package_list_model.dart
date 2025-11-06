@@ -15,7 +15,7 @@ class PackageListModel {
   final List<DestinationModel> destinations;
   final List<FeatureModel> coreFeatures;
   final List<PlanModel> plans;
-  final String isLiked;
+  final bool isLiked;
 
   PackageListModel({
     required this.id,

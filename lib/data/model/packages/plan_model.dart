@@ -6,8 +6,8 @@ class PlanModel {
   final int price;
   final int discount;
   final bool isDiscountActive;
-  final String discountExpiryDate;
-  final String discountedPrice;
+  final String? discountExpiryDate;
+  final num  discountedPrice;
   final List<FeatureModel> features;
 
   PlanModel({
@@ -16,7 +16,7 @@ class PlanModel {
     required this.price,
     required this.discount,
     required this.isDiscountActive,
-    required this.discountExpiryDate,
+    this.discountExpiryDate,
     required this.discountedPrice,
     required this.features,
   });
@@ -27,7 +27,7 @@ class PlanModel {
       type: json['type'],
       price: json['price'],
       discount: json['discount'],
-      isDiscountActive: json['is_discount_active'] ,
+      isDiscountActive: json['is_discount_active'],
       discountExpiryDate: json['discount_expiry_date'],
       discountedPrice: json['discounted_price'],
       features: (json['features'] as List).map((e) => FeatureModel.fromJson(e)).toList(),

@@ -30,8 +30,7 @@ class PackageRepository {
   }
 
   Future<Result<RetrieveModel>> getPackageById(int id) async {
-    final result = await _apiClient.get('/packages/package/retrieve/$id');
-
+    final result = await _apiClient.get('/packages/package/retrieve/$id/');
     return result.fold(
       (error) => Result.error(error),
       (data) => Result.ok(RetrieveModel.fromJson(data)),
@@ -39,7 +38,7 @@ class PackageRepository {
   }
 
   Future<Result<DayRetrieveModel>> getDayById(int id) async {
-    final result = await _apiClient.get('/packages/day/retrieve/$id');
+    final result = await _apiClient.get('/packages/day/retrieve/$id/');
 
     return result.fold(
       (error) => Result.error(error),
@@ -57,7 +56,7 @@ class PackageRepository {
   }
 
   Future<Result<AccRetrieveModel>> getAccommodationById(int id) async {
-    final result = await _apiClient.get('/packages/accommodation/retrieve/$id');
+    final result = await _apiClient.get('/packages/accommodation/retrieve/$id/');
 
     return result.fold(
       (error) => Result.error(error),
@@ -66,7 +65,7 @@ class PackageRepository {
   }
 
   Future<Result<ActivityRetrieveModel>> getActivityById(int id) async {
-    final result = await _apiClient.get('/packages/activity/retrieve/$id');
+    final result = await _apiClient.get('/packages/activity/retrieve/$id/');
 
     return result.fold(
       (error) => Result.error(error),

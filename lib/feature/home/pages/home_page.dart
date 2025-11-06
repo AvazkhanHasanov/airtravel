@@ -6,6 +6,7 @@ import 'package:air_travel/feature/home/managers/home_bloc.dart';
 import 'package:air_travel/feature/home/managers/home_state.dart';
 import 'package:air_travel/feature/home/widgets/carousel_images.dart';
 import 'package:air_travel/feature/home/widgets/discount_container.dart';
+import 'package:air_travel/feature/home/widgets/package_container.dart';
 import 'package:air_travel/feature/home/widgets/popular_place.dart';
 import 'package:air_travel/feature/home/widgets/search_row.dart';
 import 'package:flutter/material.dart';
@@ -24,14 +25,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final controller = TextEditingController();
 
-  final List<String> images = [
-    AppIcons.image,
-    AppIcons.image2,
-    AppIcons.image,
-    AppIcons.image2,
-    AppIcons.image,
-  ];
-
   @override
   void dispose() {
     controller.dispose();
@@ -46,6 +39,7 @@ class _HomePageState extends State<HomePage> {
           if (state.popularStatus == Status.loading) {
             return Center(child: CircularProgressIndicator());
           }
+
           return SafeArea(
             child: SingleChildScrollView(
               child: Column(
@@ -57,7 +51,29 @@ class _HomePageState extends State<HomePage> {
                   CarouselImages(popular: state.popularPlace),
                   Text('Mashxur Joylar', style: AppStyles.h5Bold).paddingOnly(left: 24),
                   PopularPlace(popular: state.popularPlace),
-                  DiscountContainer(images: images),
+                  state.packagesStatus == Status.loading
+                      ? Center(child: CircularProgressIndicator())
+                      : DiscountContainer(package: state.packages),
+                  state.packagesStatus == Status.loading
+                      ? CircularProgressIndicator()
+                      : ListView.separated(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        padding: EdgeInsets.only(left: 20.w),
+                        separatorBuilder: (context, index) => 12.height,
+                        itemCount: state.packages.length,
+                        itemBuilder: (context, index) => PackageContainer(
+                          plans: state.packages[index].plans,
+                          features: state.packages[index].coreFeatures,
+                          images: state.packages[index].picture,
+                          days: state.packages[index].duration,
+                          startDate: '14 Okt',
+                          endDate: '27 Okt',
+                          title: state.packages[index].title,
+                          destinations: state.packages[index].destinations,
+                          planType: state.packages[index].plans,
+                        ),
+                      ),
                 ],
               ),
             ),

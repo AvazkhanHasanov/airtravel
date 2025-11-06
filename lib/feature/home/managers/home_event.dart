@@ -8,3 +8,4 @@ sealed class HomeEvent {
 }
 
 final class GetPopularPlace extends HomeEvent {}
+final class GetPackages extends HomeEvent{}

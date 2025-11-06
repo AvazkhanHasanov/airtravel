@@ -77,6 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
           ),
+
           const SizedBox(height: 20),
           _tile(AppIcons.profile, 'Profilni tahrirlash'),
           _tile(
