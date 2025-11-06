@@ -8,11 +8,11 @@ import 'retrieve_plan_model.dart';
 class RetrieveModel {
   final int id;
   final String title;
-  final int? flightFrom;
-  final String? startDate;
-  final String? endDate;
-  final String? description;
-  final int? country;
+  final int flightFrom;
+  final String startDate;
+  final String endDate;
+  final String description;
+  final int country;
   final List<RetrievePictureModel> pictures;
   final int duration;
   final List<DestinationModel> destinations;

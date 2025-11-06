@@ -5,11 +5,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class Dots extends StatelessWidget {
   const Dots({
     super.key,
-    required this.currentIndex, required this.imagesCount,
+    required this.currentIndex,
+    required this.imagesCount,
+    this.activeColor = AppColors.greyscale900,
+    this.inactive = AppColors.greyscale400,
+    this.backgroundColor = AppColors.white,
   });
 
   final int imagesCount;
   final int currentIndex;
+  final Color activeColor;
+  final Color inactive;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +25,7 @@ class Dots extends StatelessWidget {
       child: Container(
         height: 8.w,
         width: (imagesCount * 9 + 22).w,
-        decoration: BoxDecoration(color: AppColors.white, borderRadius: BorderRadius.circular(5.r)),
+        decoration: BoxDecoration(color: backgroundColor, borderRadius: BorderRadius.circular(5.r)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(imagesCount, (index) {
@@ -29,7 +36,7 @@ class Dots extends StatelessWidget {
               height: 4.h,
               width: isActive ? 16.w : 4.w,
               decoration: BoxDecoration(
-                color: isActive ? AppColors.greyscale900 : AppColors.greyscale400,
+                color: isActive ? activeColor : inactive,
                 borderRadius: BorderRadius.circular(12),
               ),
             );

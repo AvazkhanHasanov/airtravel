@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HomeState {
 
- Status get popularStatus; String? get popularError; List<PopularModel> get popularPlace;
+ Status get popularStatus; Status get packagesStatus; String? get popularError; String? get packagesError; List<PopularModel> get popularPlace; List<PackageListModel> get packages;
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $HomeStateCopyWith<HomeState> get copyWith => _$HomeStateCopyWithImpl<HomeState>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&(identical(other.popularStatus, popularStatus) || other.popularStatus == popularStatus)&&(identical(other.popularError, popularError) || other.popularError == popularError)&&const DeepCollectionEquality().equals(other.popularPlace, popularPlace));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&(identical(other.popularStatus, popularStatus) || other.popularStatus == popularStatus)&&(identical(other.packagesStatus, packagesStatus) || other.packagesStatus == packagesStatus)&&(identical(other.popularError, popularError) || other.popularError == popularError)&&(identical(other.packagesError, packagesError) || other.packagesError == packagesError)&&const DeepCollectionEquality().equals(other.popularPlace, popularPlace)&&const DeepCollectionEquality().equals(other.packages, packages));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,popularStatus,popularError,const DeepCollectionEquality().hash(popularPlace));
+int get hashCode => Object.hash(runtimeType,popularStatus,packagesStatus,popularError,packagesError,const DeepCollectionEquality().hash(popularPlace),const DeepCollectionEquality().hash(packages));
 
 @override
 String toString() {
-  return 'HomeState(popularStatus: $popularStatus, popularError: $popularError, popularPlace: $popularPlace)';
+  return 'HomeState(popularStatus: $popularStatus, packagesStatus: $packagesStatus, popularError: $popularError, packagesError: $packagesError, popularPlace: $popularPlace, packages: $packages)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $HomeStateCopyWith<$Res>  {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) _then) = _$HomeStateCopyWithImpl;
 @useResult
 $Res call({
- Status popularStatus, String? popularError, List<PopularModel> popularPlace
+ Status popularStatus, Status packagesStatus, String? popularError, String? packagesError, List<PopularModel> popularPlace, List<PackageListModel> packages
 });
 
 
@@ -62,12 +62,15 @@ class _$HomeStateCopyWithImpl<$Res>
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? popularStatus = null,Object? popularError = freezed,Object? popularPlace = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? popularStatus = null,Object? packagesStatus = null,Object? popularError = freezed,Object? packagesError = freezed,Object? popularPlace = null,Object? packages = null,}) {
   return _then(_self.copyWith(
 popularStatus: null == popularStatus ? _self.popularStatus : popularStatus // ignore: cast_nullable_to_non_nullable
+as Status,packagesStatus: null == packagesStatus ? _self.packagesStatus : packagesStatus // ignore: cast_nullable_to_non_nullable
 as Status,popularError: freezed == popularError ? _self.popularError : popularError // ignore: cast_nullable_to_non_nullable
+as String?,packagesError: freezed == packagesError ? _self.packagesError : packagesError // ignore: cast_nullable_to_non_nullable
 as String?,popularPlace: null == popularPlace ? _self.popularPlace : popularPlace // ignore: cast_nullable_to_non_nullable
-as List<PopularModel>,
+as List<PopularModel>,packages: null == packages ? _self.packages : packages // ignore: cast_nullable_to_non_nullable
+as List<PackageListModel>,
   ));
 }
 
@@ -152,10 +155,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Status popularStatus,  String? popularError,  List<PopularModel> popularPlace)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Status popularStatus,  Status packagesStatus,  String? popularError,  String? packagesError,  List<PopularModel> popularPlace,  List<PackageListModel> packages)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HomeState() when $default != null:
-return $default(_that.popularStatus,_that.popularError,_that.popularPlace);case _:
+return $default(_that.popularStatus,_that.packagesStatus,_that.popularError,_that.packagesError,_that.popularPlace,_that.packages);case _:
   return orElse();
 
 }
@@ -173,10 +176,10 @@ return $default(_that.popularStatus,_that.popularError,_that.popularPlace);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Status popularStatus,  String? popularError,  List<PopularModel> popularPlace)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Status popularStatus,  Status packagesStatus,  String? popularError,  String? packagesError,  List<PopularModel> popularPlace,  List<PackageListModel> packages)  $default,) {final _that = this;
 switch (_that) {
 case _HomeState():
-return $default(_that.popularStatus,_that.popularError,_that.popularPlace);case _:
+return $default(_that.popularStatus,_that.packagesStatus,_that.popularError,_that.packagesError,_that.popularPlace,_that.packages);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -193,10 +196,10 @@ return $default(_that.popularStatus,_that.popularError,_that.popularPlace);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Status popularStatus,  String? popularError,  List<PopularModel> popularPlace)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Status popularStatus,  Status packagesStatus,  String? popularError,  String? packagesError,  List<PopularModel> popularPlace,  List<PackageListModel> packages)?  $default,) {final _that = this;
 switch (_that) {
 case _HomeState() when $default != null:
-return $default(_that.popularStatus,_that.popularError,_that.popularPlace);case _:
+return $default(_that.popularStatus,_that.packagesStatus,_that.popularError,_that.packagesError,_that.popularPlace,_that.packages);case _:
   return null;
 
 }
@@ -208,16 +211,25 @@ return $default(_that.popularStatus,_that.popularError,_that.popularPlace);case 
 
 
 class _HomeState implements HomeState {
-  const _HomeState({required this.popularStatus, required this.popularError, required final  List<PopularModel> popularPlace}): _popularPlace = popularPlace;
+  const _HomeState({required this.popularStatus, required this.packagesStatus, required this.popularError, required this.packagesError, required final  List<PopularModel> popularPlace, required final  List<PackageListModel> packages}): _popularPlace = popularPlace,_packages = packages;
   
 
 @override final  Status popularStatus;
+@override final  Status packagesStatus;
 @override final  String? popularError;
+@override final  String? packagesError;
  final  List<PopularModel> _popularPlace;
 @override List<PopularModel> get popularPlace {
   if (_popularPlace is EqualUnmodifiableListView) return _popularPlace;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_popularPlace);
+}
+
+ final  List<PackageListModel> _packages;
+@override List<PackageListModel> get packages {
+  if (_packages is EqualUnmodifiableListView) return _packages;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_packages);
 }
 
 
@@ -231,16 +243,16 @@ _$HomeStateCopyWith<_HomeState> get copyWith => __$HomeStateCopyWithImpl<_HomeSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&(identical(other.popularStatus, popularStatus) || other.popularStatus == popularStatus)&&(identical(other.popularError, popularError) || other.popularError == popularError)&&const DeepCollectionEquality().equals(other._popularPlace, _popularPlace));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&(identical(other.popularStatus, popularStatus) || other.popularStatus == popularStatus)&&(identical(other.packagesStatus, packagesStatus) || other.packagesStatus == packagesStatus)&&(identical(other.popularError, popularError) || other.popularError == popularError)&&(identical(other.packagesError, packagesError) || other.packagesError == packagesError)&&const DeepCollectionEquality().equals(other._popularPlace, _popularPlace)&&const DeepCollectionEquality().equals(other._packages, _packages));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,popularStatus,popularError,const DeepCollectionEquality().hash(_popularPlace));
+int get hashCode => Object.hash(runtimeType,popularStatus,packagesStatus,popularError,packagesError,const DeepCollectionEquality().hash(_popularPlace),const DeepCollectionEquality().hash(_packages));
 
 @override
 String toString() {
-  return 'HomeState(popularStatus: $popularStatus, popularError: $popularError, popularPlace: $popularPlace)';
+  return 'HomeState(popularStatus: $popularStatus, packagesStatus: $packagesStatus, popularError: $popularError, packagesError: $packagesError, popularPlace: $popularPlace, packages: $packages)';
 }
 
 
@@ -251,7 +263,7 @@ abstract mixin class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Re
   factory _$HomeStateCopyWith(_HomeState value, $Res Function(_HomeState) _then) = __$HomeStateCopyWithImpl;
 @override @useResult
 $Res call({
- Status popularStatus, String? popularError, List<PopularModel> popularPlace
+ Status popularStatus, Status packagesStatus, String? popularError, String? packagesError, List<PopularModel> popularPlace, List<PackageListModel> packages
 });
 
 
@@ -268,12 +280,15 @@ class __$HomeStateCopyWithImpl<$Res>
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? popularStatus = null,Object? popularError = freezed,Object? popularPlace = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? popularStatus = null,Object? packagesStatus = null,Object? popularError = freezed,Object? packagesError = freezed,Object? popularPlace = null,Object? packages = null,}) {
   return _then(_HomeState(
 popularStatus: null == popularStatus ? _self.popularStatus : popularStatus // ignore: cast_nullable_to_non_nullable
+as Status,packagesStatus: null == packagesStatus ? _self.packagesStatus : packagesStatus // ignore: cast_nullable_to_non_nullable
 as Status,popularError: freezed == popularError ? _self.popularError : popularError // ignore: cast_nullable_to_non_nullable
+as String?,packagesError: freezed == packagesError ? _self.packagesError : packagesError // ignore: cast_nullable_to_non_nullable
 as String?,popularPlace: null == popularPlace ? _self._popularPlace : popularPlace // ignore: cast_nullable_to_non_nullable
-as List<PopularModel>,
+as List<PopularModel>,packages: null == packages ? _self._packages : packages // ignore: cast_nullable_to_non_nullable
+as List<PackageListModel>,
   ));
 }
 

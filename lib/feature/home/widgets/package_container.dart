@@ -1,35 +1,35 @@
 import 'package:air_travel/core/context_extensions.dart';
 import 'package:air_travel/core/routing/routes.dart';
-import 'package:air_travel/core/utils/colors.dart';
-import 'package:air_travel/core/utils/styles.dart';
-import 'package:air_travel/data/model/packages/destination_model.dart';
-import 'package:air_travel/data/model/packages/feature_model.dart';
-import 'package:air_travel/data/model/packages/plan_model.dart';
-import 'package:air_travel/feature/common/widgets/app_text_button.dart';
-import 'package:air_travel/feature/home/widgets/for_destinations.dart';
 import 'package:air_travel/feature/home/widgets/place_image.dart';
 import 'package:air_travel/feature/home/widgets/plan_types.dart';
-import 'package:air_travel/feature/home/widgets/travel_features.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class TravelPackages extends StatefulWidget {
-  const TravelPackages({
+import '../../../core/utils/colors.dart';
+import '../../../core/utils/styles.dart';
+import '../../../data/model/packages/destination_model.dart';
+import '../../../data/model/packages/feature_model.dart';
+import '../../../data/model/packages/plan_model.dart';
+import '../../common/widgets/app_text_button.dart';
+import 'for_destinations.dart';
+import 'travel_features.dart';
+
+class PackageContainer extends StatelessWidget {
+  const PackageContainer({
     super.key,
-    required this.images,
-    required this.days,
-    required this.startDate,
-    required this.endDate,
-    required this.title,
+    required this.plans,
     required this.destinations,
     required this.planType,
     required this.features,
-    required this.plans,
+    required this.days,
+    required this.startDate,
+    required this.endDate,
+    required this.images,
+    required this.title,
   });
 
   final List<PlanModel> plans;
-
   final List<DestinationModel> destinations;
   final List<PlanModel> planType;
   final List<FeatureModel> features;
@@ -40,16 +40,11 @@ class TravelPackages extends StatefulWidget {
   final String title;
 
   @override
-  State<TravelPackages> createState() => _TravelPackagesState();
-}
-
-class _TravelPackagesState extends State<TravelPackages> {
-  @override
   Widget build(BuildContext context) {
     return Container(
       clipBehavior: Clip.antiAlias,
       constraints: BoxConstraints(minHeight: 529.h, maxHeight: 600),
-      width: 302.w,
+      width: 376.w,
       padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 7.h),
       decoration: BoxDecoration(
         color: AppColors.white,
@@ -65,21 +60,23 @@ class _TravelPackagesState extends State<TravelPackages> {
         mainAxisSize: MainAxisSize.min,
         children: [
           PlaceImage(
-            image: widget.images,
-            days: widget.days,
-            startDate: widget.startDate,
-            endDate: widget.endDate,
+            image: images,
+            days: days,
+            startDate: startDate,
+            endDate: endDate,
+            height: 222,
+            width: 361,
           ),
-          Text(widget.title, style: AppStyles.h6Bold),
+          Text(title, style: AppStyles.h6Bold),
           SizedBox(
             height: 23.h,
             child: ListView.separated(
               separatorBuilder: (context, index) => 12.width,
               scrollDirection: Axis.horizontal,
-              itemCount: widget.destinations.length,
+              itemCount: destinations.length,
               itemBuilder: (context, index) => ForDestinations(
-                ccity: widget.destinations[index].ccity,
-                duration: widget.destinations[index].duration,
+                ccity: destinations[index].ccity,
+                duration: destinations[index].duration,
               ),
             ),
           ),
@@ -89,12 +86,13 @@ class _TravelPackagesState extends State<TravelPackages> {
             child: ListView.separated(
               separatorBuilder: (context, index) => 4.width,
               scrollDirection: Axis.horizontal,
-              itemCount: widget.features.length,
-              itemBuilder: (context, index) => TravelFeatures(title: widget.features[index].title),
+              itemCount: features.length,
+              itemBuilder: (context, index) => TravelFeatures(title: features[index].title),
             ),
           ),
           Text("Tariflar", style: AppStyles.h6Bold),
-          Expanded(
+          SizedBox(
+            height: 110.h,
             child: RawScrollbar(
               thumbColor: AppColors.greyscale900,
               interactive: true,
@@ -102,12 +100,12 @@ class _TravelPackagesState extends State<TravelPackages> {
                 clipBehavior: Clip.none,
                 scrollDirection: Axis.horizontal,
                 separatorBuilder: (context, index) => 8.width,
-                itemCount: widget.plans.length,
+                itemCount: plans.length,
                 itemBuilder: (context, index) => PlanTypes(
-                  type: widget.plans[index].type,
-                  price: widget.plans[index].price,
-                  discountedPrice: widget.plans[index].price,
-                  feature: widget.plans[index].features,
+                  type: plans[index].type,
+                  price: plans[index].price,
+                  discountedPrice: plans[index].price,
+                  feature: plans[index].features,
                 ),
               ),
             ),
@@ -121,6 +119,6 @@ class _TravelPackagesState extends State<TravelPackages> {
           ),
         ],
       ),
-    );
+    ).paddingSymmetric(horizontal: 24.w);
   }
 }

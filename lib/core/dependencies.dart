@@ -48,5 +48,9 @@ final blocDependencies = <SingleChildWidget>[
   BlocProvider<LoginBloc>(create: (context) => LoginBloc(repository: context.read<LoginRepository>())),
   BlocProvider<OtpBloc>(create: (context) => OtpBloc(repository: context.read<LoginRepository>())),
   BlocProvider(create: (context) => RegisterBloc(repository: context.read<LoginRepository>())),
-  BlocProvider(create: (context) => HomeBloc(popularRepo: context.read())..add(GetPopularPlace())),
+  BlocProvider(
+    create: (context) => HomeBloc(popularRepo: context.read(), packageRepo: context.read())
+      ..add(GetPopularPlace())
+      ..add(GetPackages()),
+  ),
 ];

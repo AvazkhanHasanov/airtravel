@@ -22,7 +22,7 @@ class DiscountTime extends StatelessWidget {
         SvgPicture.asset(AppIcons.discount),
         Column(
           children: [
-            CircularProgressIndicator.adaptive(),
+
             Text(
               'Shoshiling',
               style: AppStyles.h4Bold.copyWith(color: AppColors.white),

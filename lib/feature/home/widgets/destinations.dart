@@ -19,6 +19,7 @@ class Destinations extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
+      spacing: 1.w,
       children: [
         AppIconButton(
           icon: AppIcons.calendar,

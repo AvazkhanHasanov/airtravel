@@ -7,10 +7,10 @@ class RetrievePlanModel {
   final int price;
   final bool isDiscountActive;
   final int discount;
-  final String discountExpiryDate;
-  final String discountedPrice;
+  final String? discountExpiryDate;
+  final num discountedPrice;
   final List<RetrieveFeatureModel> features;
-  final String description;
+  final String? description;
 
   RetrievePlanModel({
     required this.id,
@@ -18,10 +18,10 @@ class RetrievePlanModel {
     required this.price,
     required this.isDiscountActive,
     required this.discount,
-    required this.discountExpiryDate,
+    this.discountExpiryDate,
     required this.discountedPrice,
     required this.features,
-    required this.description,
+    this.description,
   });
 
   factory RetrievePlanModel.fromJson(Map<String, dynamic> json) {

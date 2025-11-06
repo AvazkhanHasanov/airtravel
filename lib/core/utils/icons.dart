@@ -68,4 +68,5 @@ class AppIcons {
   static const  String telegram = 'assets/icons/basil_telegram-outline.svg';
   static const ticket = 'assets/icons/Ticket.svg';
   static const call2 = 'assets/icons/Call2.svg';
+  static const heart2='assets/icons/heart2.svg';
 }
