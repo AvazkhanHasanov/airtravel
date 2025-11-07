@@ -102,6 +102,7 @@ class PackageContainer extends StatelessWidget {
                 separatorBuilder: (context, index) => 8.width,
                 itemCount: plans.length,
                 itemBuilder: (context, index) => PlanTypes(
+
                   type: plans[index].type,
                   price: plans[index].price,
                   discountedPrice: plans[index].price,

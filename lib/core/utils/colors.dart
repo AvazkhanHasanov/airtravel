@@ -26,4 +26,5 @@ class AppColors {
   static const orange = Color(0xFFF6980A);
   static const greyscale200 = Color(0xFFEEEEEE);
   static const greyscale100 = Color(0xFFF5F5F5);
+  static const grey20 = Color(0xFF808080);
 }
