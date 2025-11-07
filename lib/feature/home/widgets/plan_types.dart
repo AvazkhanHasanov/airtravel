@@ -114,7 +114,7 @@ class _PlanTypesState extends State<PlanTypes> {
                     Wrap(
                       children: [
                         ...List.generate(
-                          widget.feature.length,
+                          widget.feature.length == 1 ? 1 : 2,
                           (index) => TravelFeatures(title: widget.feature[index].title),
                         ),
                         widget.feature.length > 2
